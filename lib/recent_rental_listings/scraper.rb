@@ -23,6 +23,15 @@ class RecentRentalListings::Scraper
     @state_hash
   end
 
+  def get_city_nodes
+    @city_nodes = []
+    doc = Nokogiri::HTML(open('https://www.craigslist.org/about/sites'))
+    a = doc.css(".colmask").first
+    a.css(".box ul").each do |nodes|
+      @city_nodes << nodes
+    end
+    @city_nodes
+  end
 
 
 
