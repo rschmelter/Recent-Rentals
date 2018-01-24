@@ -15,6 +15,13 @@ class RecentRentalListings::Scraper
       @states
   end
 
+  def hash_builder_states
+    @state_hash = {}
+    @states.each do |state|
+      @state_hash[state] = []
+      end
+    @state_hash
+  end
 
 
 
