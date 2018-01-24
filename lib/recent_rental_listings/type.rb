@@ -12,6 +12,11 @@ class RecentRentalListings::Type
     @@all << self
   end
 
+  def add_rentals(rental)
+    @rentals << rental
+    rental.type = self
+  end
+
 
 
 
