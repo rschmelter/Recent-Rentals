@@ -15,6 +15,13 @@ class RecentRentalListings::Scraper
     hash_builder_state_city_url
   end
 
+  def make_types(url)
+    scrape_rental_types_block(url)
+    scrape_rental_types
+    scrape_rental_types_href
+    rental_types_and_urls
+  end
+
   def make_rentals(url)
     scrape_listing_page(url)
   end
@@ -132,6 +139,7 @@ class RecentRentalListings::Scraper
   def rental_types_and_urls
     @rental_options_and_urls = @rental_options.zip(@rental_urls)
     @rental_options_and_urls
+    binding.pry
   end
 
   def scrape_listing_page(url)
