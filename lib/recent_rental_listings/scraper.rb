@@ -65,5 +65,16 @@ class RecentRentalListings::Scraper
     @city_urls
   end
 
+  def hash_builder_state_city_url
+    keys = @state_hash.keys
+    i = 0
+    keys.each do |state|
+      @state_hash[state] << @city_arrays[i]
+      @state_hash[state] << @city_urls[i]
+      i += 1
+    end
+    @state_hash
+  end
+
 
 end
