@@ -26,7 +26,11 @@ class RecentRentalListings::City
     @types
   end
 
-  # get rentals through types
+  def rentals
+    self.types.collect do |type|
+      type.rentals
+    end
+  end
 
 
 
