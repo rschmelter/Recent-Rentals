@@ -76,5 +76,13 @@ class RecentRentalListings::Scraper
     @state_hash
   end
 
+  def scrape_rental_types(url)
+    @url = url
+    html = open(url)
+    doc = Nokogiri::HTML(html)
+    @rental_block = doc.css(".housing ul").first
+    @rental_block
+  end
+
 
 end
