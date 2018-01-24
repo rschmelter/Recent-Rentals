@@ -23,6 +23,9 @@ class RecentRentalListings::state
     @cities
   end
 
+  # has many types through cities
+  # has many rentals through cities.types
+
   def self.find_by_name(name)
     @@all.detect do |state|
       state.name == name
