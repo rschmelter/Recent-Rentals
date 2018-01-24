@@ -8,12 +8,18 @@ class RecentRentalListings::City
     @name = name
     @state = state
     @url = url
+    @types = []
     state.add_city(self)
     @@all << self
   end
 
   def self.all?
     @@all
+  end
+
+  def add_rental_type(type)
+    @types << type
+    type.rental = self
   end
 
 
