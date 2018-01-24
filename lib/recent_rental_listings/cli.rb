@@ -1,0 +1,13 @@
+class RecentRentalListings::CLI
+
+
+
+
+
+
+
+
+
+
+
+end

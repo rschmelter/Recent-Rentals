@@ -26,8 +26,4 @@ class RecentRentalListings::Type
   end
 
 
-
-
-
-
 end
