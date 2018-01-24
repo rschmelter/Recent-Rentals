@@ -1,5 +1,5 @@
 
-class RecentRentalListings::city
+class RecentRentalListings::City
 
 
 
