@@ -26,6 +26,7 @@ class RecentRentalListings::City
     @types
   end
 
+  # get rentals through types
 
 
 
