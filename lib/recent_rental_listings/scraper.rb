@@ -96,6 +96,24 @@ class RecentRentalListings::Scraper
     @rental_options
   end
 
+  def scrape_rental_options_href
+    @root = @url.chomp("/")
+    @rental_urls = []
+    i = 0
+    remove_at_index = [1, 2, 3, 4, 5, 7]
+    @rental_block.css("li").collect do |item|
+      @rental_urls << item.children.attribute("href").value
+  end
+    @rental_urls.collect do |url|
+      @rental_urls[i] = "#{@root}#{url}"
+      i += 1
+  end
+    @rental_urls = @rental_urls.reject.with_index do |e, i|
+      remove_at_index.include?(i)
+  end
+    @rental_urls
+  end
+
 
 
 
