@@ -1,4 +1,4 @@
-class RecentRentalListings::state
+class RecentRentalListings::State
 
   attr_accessor :name
 

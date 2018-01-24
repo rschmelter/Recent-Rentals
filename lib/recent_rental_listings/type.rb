@@ -1,0 +1,9 @@
+class RecentRentalListings::Type
+
+
+
+
+
+
+
+end
