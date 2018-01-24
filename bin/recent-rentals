@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/recent_rental_listings'
+
 puts "hello"
