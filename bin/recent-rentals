@@ -2,4 +2,5 @@
 
 require_relative '../lib/recent_rental_listings'
 
-RecentRentalListings::Scraper.new.make_rentals("https://westmd.craigslist.org/d/apts-housing-for-rent/search/apa")
+# RecentRentalListings::Scraper.new.make_rentals("https://westmd.craigslist.org/d/apts-housing-for-rent/search/apa")
+RecentRentalListings::Scraper.new.make_states_cities

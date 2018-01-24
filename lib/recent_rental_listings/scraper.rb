@@ -6,6 +6,14 @@ require 'pry'
 class RecentRentalListings::Scraper
 
 
+  def make_states_cities
+    scrape_states
+    hash_builder_states
+    get_city_nodes
+    get_city_arrays
+    get_city_urls
+    hash_builder_state_city_url
+  end
 
   def make_rentals(url)
     scrape_listing_page(url)
@@ -80,6 +88,7 @@ class RecentRentalListings::Scraper
       i += 1
     end
     @state_hash
+
   end
 
   def scrape_rental_types_block(url)
