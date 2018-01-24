@@ -96,7 +96,7 @@ class RecentRentalListings::Scraper
     @rental_options
   end
 
-  def scrape_rental_options_href
+  def scrape_rental_types_href
     @root = @url.chomp("/")
     @rental_urls = []
     i = 0
@@ -112,6 +112,11 @@ class RecentRentalListings::Scraper
       remove_at_index.include?(i)
   end
     @rental_urls
+  end
+
+  def rental_options_and_urls
+    @rental_options_and_urls = @rental_options.zip(@rental_urls)
+    @rental_options_and_urls
   end
 
 
