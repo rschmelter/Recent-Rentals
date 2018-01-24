@@ -33,6 +33,22 @@ class RecentRentalListings::Scraper
     @city_nodes
   end
 
+  def get_city_arrays
+    i = 0
+    @text_array = []
+    @city_arrays = []
+    @city_nodes.collect do |node|
+      @text_array << node.text
+    end
+    @text_array.collect do |cities|
+      @city_arrays << cities.split("\n")
+    end
+    @city_arrays.collect do |array|
+      array.pop
+      array.shift
+    end
+    @city_arrays
+  end
 
 
 
