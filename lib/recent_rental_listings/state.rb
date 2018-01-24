@@ -1,0 +1,7 @@
+class RecentRentalListings::state
+
+
+
+
+
+end
