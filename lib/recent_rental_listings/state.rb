@@ -19,6 +19,16 @@ class RecentRentalListings::state
     city.state = self
   end
 
+  def cities
+    @cities
+  end
+
+  def self.find_by_name(name)
+    @@all.detect do |state|
+      state.name == name
+  end
+
+
 
 
 end
