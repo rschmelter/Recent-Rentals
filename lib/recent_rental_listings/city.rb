@@ -22,6 +22,10 @@ class RecentRentalListings::City
     type.rental = self
   end
 
+  def types
+    @types
+  end
+
 
 
 
