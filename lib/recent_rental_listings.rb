@@ -8,3 +8,4 @@ require 'pry'
 require 'nokogiri'
 
 require_relative "recent_rental_listings/version"
+require_relative "recent_rental_listings/scraper"

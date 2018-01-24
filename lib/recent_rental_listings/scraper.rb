@@ -1,11 +1,17 @@
 require 'open-uri'
 require 'nokogiri'
+require 'pry'
 
 
 class RecentRentalListings::Scraper
 
-  def scrape_states
 
+
+  def make_rentals(url)
+    scrape_listing_page(url)
+  end
+
+  def scrape_states
     @states = []
     doc = Nokogiri::HTML(open('https://www.craigslist.org/about/sites'))
     a = doc.css(".colmask").first
@@ -133,6 +139,7 @@ class RecentRentalListings::Scraper
       i += 1
     end
     @result_hash
+
   end
 
 
