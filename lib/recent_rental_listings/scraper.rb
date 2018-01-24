@@ -50,6 +50,20 @@ class RecentRentalListings::Scraper
     @city_arrays
   end
 
+  def get_city_urls
+    @city_urls = []
+    i = 0
+    @city_nodes.each do |group|
+      @city_urls[i] = []
+      group.css("li").each do |city|
+        info = city.children
+        url = info.attribute("href").value
+        @city_urls[i] << url
+      end
+      i += 1
+    end
+    @city_urls
+  end
 
 
 end
