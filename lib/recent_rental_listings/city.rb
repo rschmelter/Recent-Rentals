@@ -12,8 +12,9 @@ class RecentRentalListings::City
     @@all << self
   end
 
-
-
+  def self.all?
+    @@all
+  end
 
 
 
