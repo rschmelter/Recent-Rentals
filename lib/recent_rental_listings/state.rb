@@ -25,19 +25,20 @@ class RecentRentalListings::State
 
   def types
     self.cities.collect do |city|
-      city.type
+      city.types
     end
   end
 
-
-
-  # has many types through cities
-  # has many rentals through cities.types
+  def rentals
+    self.types.collect do |type|
+      type.rentals
+  end
 
   def self.find_by_name(name)
     @@all.detect do |state|
       state.name == name
   end
+ end
 
 
 
