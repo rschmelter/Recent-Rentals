@@ -17,6 +17,10 @@ class RecentRentalListings::Type
     rental.type = self
   end
 
+  def rentals
+    @rentals
+  end
+
 
 
 
