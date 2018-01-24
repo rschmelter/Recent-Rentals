@@ -76,13 +76,27 @@ class RecentRentalListings::Scraper
     @state_hash
   end
 
-  def scrape_rental_types(url)
+  def scrape_rental_types_block(url)
     @url = url
     html = open(url)
     doc = Nokogiri::HTML(html)
     @rental_block = doc.css(".housing ul").first
     @rental_block
   end
+
+  def scrape_rental_types
+    remove_at_index = [1, 2, 3, 4, 5, 7]
+    @rental_options = []
+    @rental_block.css("li").each do |type|
+      @rental_options << type.text
+    end
+    @rental_options = @rental_options.reject.with_index do |e, i|
+      remove_at_index.include?(i)
+    end
+    @rental_options
+  end
+
+
 
 
 end
