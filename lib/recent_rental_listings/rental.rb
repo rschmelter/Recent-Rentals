@@ -11,6 +11,10 @@ class RecentRentalListings::Rental
     @@all << self
   end
 
+  def self.all
+    @@all
+  end
+
 
 
 
