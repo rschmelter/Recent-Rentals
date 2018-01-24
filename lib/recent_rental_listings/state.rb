@@ -23,6 +23,14 @@ class RecentRentalListings::State
     @cities
   end
 
+  def types
+    self.cities.collect do |city|
+      city.type
+    end
+  end
+
+
+
   # has many types through cities
   # has many rentals through cities.types
 
