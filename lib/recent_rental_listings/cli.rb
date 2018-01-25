@@ -12,6 +12,11 @@ class RecentRentalListings::CLI
     show_states
   end
 
+  def show_states
+    puts "To get started, type 'list' to show a list of states and areas with available rentals. Or type the name of the state."
+    puts " "
+      valid = false
+  end
 
 
 
