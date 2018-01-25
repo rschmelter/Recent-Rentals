@@ -48,7 +48,9 @@ class RecentRentalListings::CLI
       input = gets.strip
       state_number = input.to_i
       if (1..52).include?(state_number)
-
+        valid = true
+        selection = @states_array[state_number - 1]
+        show_cities(selection)
       end
     end
   end
