@@ -70,6 +70,10 @@ class RecentRentalListings::CLI
     state.cities.each_with_index do |city, index|
       puts "#{index + 1}. #{city.name.strip}"
     end
+    puts " "
+    puts "Select the number of the city to see the types of rentals that are available."
+    puts " "
+
   end
 
 
