@@ -2,9 +2,9 @@ class RecentRentalListings::CLI
 
   def start
     @states_array = []
-    @state_hash = HousingList::Scraper.new.make_states_cities
+    @state_hash = RecentRentalListings::Scraper.new.make_states_cities
     @state_hash.keys.each do |state|
-      state = HousingList::State.new(state)
+      state = RecentRentalListings::State.new(state)
       @states_array << state
     end
     puts "Welcome!"
@@ -20,7 +20,7 @@ class RecentRentalListings::CLI
         input = gets.strip
         split_input = input.split(" ").collect {|part| part.capitalize}
         detect_input = split_input.join(" ")
-        state_object = HousingList::State.find_by_name(detect_input)
+        state_object = RecentRentalListings::State.find_by_name(detect_input)
         if state_object != nil
           valid = true
           show_cities(state_object)
