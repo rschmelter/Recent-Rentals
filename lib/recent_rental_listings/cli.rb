@@ -51,6 +51,9 @@ class RecentRentalListings::CLI
         valid = true
         selection = @states_array[state_number - 1]
         show_cities(selection)
+      else
+        puts "Invalid selection. Please choose a number between 1 and 52"
+        puts " "
       end
     end
   end
