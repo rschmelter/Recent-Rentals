@@ -67,6 +67,9 @@ class RecentRentalListings::CLI
       array[1]
       )
     end
+    state.cities.each_with_index do |city, index|
+      puts "#{index + 1}. #{city.name.strip}"
+    end
   end
 
 
