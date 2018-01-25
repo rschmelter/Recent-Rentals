@@ -22,13 +22,17 @@ class RecentRentalListings::CLI
         detect_input = split_input.join(" ")
         state_object = HousingList::State.find_by_name(detect_input)
         if state_object != nil
-        valid = true
-        show_cities(state_object)
-
+          valid = true
+          show_cities(state_object)
+        elsif input.downcase == "list"
+          valid = true
+          i = 1
+          @states_array.each do |state|
+            puts "#{i}. #{state.name}"
+            i += 1
+        end
       end
-
     end
-
   end
 
 
