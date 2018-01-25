@@ -89,7 +89,14 @@ class RecentRentalListings::CLI
     end
   end
 
-
+  def show_types(city)
+    RecentRentalListings::Scraper.new.make_types(city.url).each do |array|
+      RecentRentalListings::Type.new(array[0],
+      city,
+      array[1]
+      )
+    end
+  end
 
 
 
