@@ -32,6 +32,7 @@ class RecentRentalListings::State
   def rentals
     self.types.collect do |type|
       type.rentals
+    end
   end
 
   def self.find_by_name(name)
