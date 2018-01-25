@@ -31,6 +31,8 @@ class RecentRentalListings::CLI
             puts "#{i}. #{state.name}"
             i += 1
         end
+        puts " "
+        select_state
       end
     end
   end
