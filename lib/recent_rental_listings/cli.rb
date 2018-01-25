@@ -96,6 +96,9 @@ class RecentRentalListings::CLI
       array[1]
       )
     end
+    city.types.each_with_index do |type, index|
+      puts "#{index + 1}. #{type.name}"
+    end
   end
 
 
