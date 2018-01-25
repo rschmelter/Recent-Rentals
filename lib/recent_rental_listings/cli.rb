@@ -61,7 +61,12 @@ class RecentRentalListings::CLI
   def show_cities(state)
     city_array = @state_hash[state.name]
     zipped_array = city_array[0].zip(city_array[1])
-
+    zipped_array.each do |array|
+      RecentRentalListings::City.new(array[0],
+      state,
+      array[1]
+      )
+    end
   end
 
 
