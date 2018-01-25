@@ -43,6 +43,10 @@ class RecentRentalListings::CLI
   def select_state
     puts "Type the number of the state to see a list of cities to choose from."
     puts " "
+    valid = false
+    while valid == false
+
+    end
   end
 
 
