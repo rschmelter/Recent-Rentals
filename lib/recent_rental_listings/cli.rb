@@ -47,6 +47,9 @@ class RecentRentalListings::CLI
     while valid == false
       input = gets.strip
       state_number = input.to_i
+      if (1..52).include?(state_number)
+
+      end
     end
   end
 
