@@ -21,9 +21,13 @@ class RecentRentalListings::CLI
         split_input = input.split(" ").collect {|part| part.capitalize}
         detect_input = split_input.join(" ")
         state_object = HousingList::State.find_by_name(detect_input)
-
+        if state_object != nil
+        valid = true
+        show_cities(state_object)
 
       end
+
+    end
 
   end
 
