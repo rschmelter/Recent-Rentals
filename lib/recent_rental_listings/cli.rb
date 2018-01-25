@@ -75,6 +75,8 @@ class RecentRentalListings::CLI
     puts " "
     valid = false
     while valid == false
+      input = gets.strip
+      city_number = input.to_i
     end
   end
 
