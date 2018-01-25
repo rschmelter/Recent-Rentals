@@ -16,6 +16,15 @@ class RecentRentalListings::CLI
     puts "To get started, type 'list' to show a list of states and areas with available rentals. Or type the name of the state."
     puts " "
       valid = false
+      while valid == false
+        input = gets.strip
+        split_input = input.split(" ").collect {|part| part.capitalize}
+        detect_input = split_input.join(" ")
+        state_object = HousingList::State.find_by_name(detect_input)
+
+
+      end
+
   end
 
 
