@@ -78,11 +78,14 @@ class RecentRentalListings::CLI
       input = gets.strip
       city_number = input.to_i
     end
-    if (1..state.cities.length).include?(city_number)
-      valid = true
-      selection = state.cities[city_number - 1]
-      show_options(selection)
-
+      if (1..state.cities.length).include?(city_number)
+        valid = true
+        selection = state.cities[city_number - 1]
+        show_options(selection)
+      else
+        puts "Invalid selection. Please type the number of a city to see the types of rentals available."
+        puts " "
+      end
     end
   end
 
