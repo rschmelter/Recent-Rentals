@@ -102,6 +102,11 @@ class RecentRentalListings::CLI
     puts " "
     puts "Select the number of an option to see the most recently listed rentals."
     puts " "
+    valid = false
+    while valid == false
+      input = gets.strip
+      type_number = input.to_i
+    end
   end
 
 
