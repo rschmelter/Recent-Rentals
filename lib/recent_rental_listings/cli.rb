@@ -73,7 +73,9 @@ class RecentRentalListings::CLI
     puts " "
     puts "Select the number of the city to see the types of rentals that are available."
     puts " "
-
+    valid = false
+    while valid == false
+    end
   end
 
 
