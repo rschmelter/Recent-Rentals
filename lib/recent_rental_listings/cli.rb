@@ -33,6 +33,9 @@ class RecentRentalListings::CLI
         end
         puts " "
         select_state
+        else
+          puts "invalid input. Please type 'list' to show states, or type the state name."
+          puts " "
       end
     end
   end
