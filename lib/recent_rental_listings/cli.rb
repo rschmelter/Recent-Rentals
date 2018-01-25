@@ -99,6 +99,9 @@ class RecentRentalListings::CLI
     city.types.each_with_index do |type, index|
       puts "#{index + 1}. #{type.name}"
     end
+    puts " "
+    puts "Select the number of an option to see the most recently listed rentals."
+    puts " "
   end
 
 
