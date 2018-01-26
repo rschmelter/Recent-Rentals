@@ -158,14 +158,14 @@ class RecentRentalListings::CLI
         if (1..type.rentals.length).include?(rental_number)
           valid = true
           selection = type.rentals[rental_number - 1]
-          show_description(selection.url)
+          show_description(type, selection.url)
         else
           puts "Invalid selection. Please select a number of a rental to see a description."
         end
       end
     end
 
-    def show_description(url)
+    def show_description(type, url)
       post = RecentRentalListings::Scraper.new.make_post(url)
       post.each do |graph|
         puts "#{graph}"
@@ -176,7 +176,9 @@ class RecentRentalListings::CLI
       while valid = false
         input = gets.strip
         if input.downcase == "more"
-          reset(city)
+          reset(city, type)
+        elsif input.downcase == "quit"
+          exit
         else
           puts "Invalid input. Please type 'more' or 'quit'"
         end
@@ -184,8 +186,8 @@ class RecentRentalListings::CLI
     end
 
 
-    def reset(city)
-      puts "Type 'city' to see other options in this state, 'state' to see a list of states, or 'quit' to exit"
+    def reset(city, type)
+      puts "Type 'rental' to see more of this type of rental in this city. Type 'city' to see other options in this state. Type 'state' to see a list of states, or 'quit' to exit"
       valid = false
       while valid == false
           input = gets.strip
