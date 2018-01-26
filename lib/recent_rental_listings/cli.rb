@@ -146,15 +146,30 @@ class RecentRentalListings::CLI
 
     i += 1
       end
+      reset(city)
 
     end
 
 
-
-
-
-
-
-
+    def reset(city)
+      puts "Type 'city' to see other options in this state, 'state' to see a list of states, or 'quit' to exit"
+      valid = false
+      while valid == false
+          input = gets.strip
+        if input.downcase == "city"
+          valid = true
+          show_cities(city.state)
+        elsif input.downcase == "state"
+          valid = true
+          show_states
+        elsif input.downcase == "quit"
+          valid = true
+          puts "Have a nice day!"
+          exit
+        else
+          puts "Invalid input. Please select a valid option."
+        end
+      end
+    end
 
 end
