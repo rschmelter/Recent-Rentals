@@ -106,8 +106,18 @@ class RecentRentalListings::CLI
     while valid == false
       input = gets.strip
       type_number = input.to_i
+      if (1..city.types.length).include?(type_number)
+        valid = true
+        selection = city.types[type_number - 1]
+        show_rentals(city, selection)
+      else
+        puts "Invalid selection. Please select the number of a rental type to see the most recent rentals in you chosen city."
+        puts " "
+      end
     end
   end
+
+
 
 
 
