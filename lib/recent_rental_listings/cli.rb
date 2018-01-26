@@ -108,7 +108,7 @@ class RecentRentalListings::CLI
       if (1..city.types.length).include?(type_number)
         valid = true
         selection = city.types[type_number - 1]
-        show_rentals(city, selection)
+        get_rentals(city, selection)
       else
         puts "Invalid selection. Please select the number of a rental type to see the most recent rentals in your chosen city."
         puts " "
@@ -116,7 +116,7 @@ class RecentRentalListings::CLI
     end
   end
 
-  def show_rentals(city, type)
+  def get_rentals(city, type)
     result_hash = RecentRentalListings::Scraper.new.make_rentals(type.url)
 
     result_hash.each do |key, value|
@@ -132,6 +132,10 @@ class RecentRentalListings::CLI
         rental.url = result_hash[i][5]
         i += 1
      end
+     show_rentals(type)
+   end
+
+   def show_rentals(type)
      i = 1
      type.rentals.each do |rental|
       puts "#{i})"
@@ -143,7 +147,6 @@ class RecentRentalListings::CLI
       puts "Learn more by visiting: #{rental.url}"
       puts "___________________________________________________________"
       puts ""
-
     i += 1
       end
       select_rental(type)
@@ -187,7 +190,7 @@ class RecentRentalListings::CLI
 
 
     def reset(city, type)
-      puts "Type 'rental' to see more of this type of rental in this city. Type 'city' to see other options in this state. Type 'state' to see a list of states, or 'quit' to exit"
+      puts "Type 'rentals' to see more of this type of rental in this city. Type 'city' to see other options in this state. Type 'state' to see a list of states, or 'quit' to exit"
       valid = false
       while valid == false
           input = gets.strip
@@ -197,6 +200,8 @@ class RecentRentalListings::CLI
         elsif input.downcase == "state"
           valid = true
           show_states
+        elsif input.downcase == "rentals"
+          show_rentals(type)
         elsif input.downcase == "quit"
           valid = true
           puts "Have a nice day!"
