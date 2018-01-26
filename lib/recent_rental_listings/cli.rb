@@ -122,6 +122,18 @@ class RecentRentalListings::CLI
     result_hash.each do |key, value|
       HousingList::Rental.new(city, type, key.to_s)
     end
+    i = 1
+      type.rentals.each do |rental|
+        rental.list_date = result_hash[i][0]
+        rental.description = result_hash[i][1]
+        rental.price = result_hash[i][2]
+        rental.size = result_hash[i][3]
+        rental.area = result_hash[i][4]
+        rental.url = result_hash[i][5]
+        i += 1
+    end
+
+
   end
 
 
