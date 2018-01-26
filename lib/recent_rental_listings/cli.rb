@@ -146,16 +146,27 @@ class RecentRentalListings::CLI
 
     i += 1
       end
-      select_rental
+      select_rental(type)
     end
 
-    def select_rental
+    def select_rental(type)
       puts "Select the number of a rental to see the poster's description."
-      while valid = false
+      valid = false
+      while valid == false
         input = gets.strip
-        if (1..120).include?(input.to_i)
+        rental_number = input.to_i
+        if (1..type.rentals.length).include?(rental_number)
           valid = true
+          selection = type.rentals[rental_number - 1]
+          show_description(selection.url)
+        else
+          puts "Invalid selection. Please select a number of a rental to see a description."
+        end
+      end
+    end
 
+    def show_description(url)
+      puts "#{url}"
     end
 
 
