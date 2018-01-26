@@ -165,9 +165,9 @@ class RecentRentalListings::Scraper
   def scrape_posting_info(url)
     html = open(url)
     doc = Nokogiri::HTML(html)
-    binding.pry
-
-
+    text = doc.css("#postingbody").text.split("\n")
+    posting = text.drop(5)
+    posting
   end
 
 
