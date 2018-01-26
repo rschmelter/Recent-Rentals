@@ -116,7 +116,13 @@ class RecentRentalListings::CLI
     end
   end
 
+  def show_rentals(city, type)
+    result_hash = HousingList::Scraper.new.make_rentals(type.url)
 
+    result_hash.each do |key, value|
+      HousingList::Rental.new(city, type, key.to_s)
+    end
+  end
 
 
 
