@@ -26,6 +26,10 @@ class RecentRentalListings::Scraper
     scrape_listing_page(url)
   end
 
+  def make_post(url)
+    scrape_posting_info(url)
+  end
+
   def scrape_states
     @states = []
     doc = Nokogiri::HTML(open('https://www.craigslist.org/about/sites'))
@@ -161,7 +165,7 @@ class RecentRentalListings::Scraper
   def scrape_posting_info(url)
     html = open(url)
     doc = Nokogiri::HTML(html)
-    doc.css(".result-row .result-info").each do |result|
+    binding.pry
 
 
   end
