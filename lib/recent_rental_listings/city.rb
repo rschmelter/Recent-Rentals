@@ -13,13 +13,13 @@ class RecentRentalListings::City
     @@all << self
   end
 
-  def self.all?
+  def self.all
     @@all
   end
 
   def add_rental_type(type)
     @types << type
-    type.rental = self
+    type.city = self
   end
 
   def types

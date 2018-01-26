@@ -77,11 +77,10 @@ class RecentRentalListings::CLI
     while valid == false
       input = gets.strip
       city_number = input.to_i
-    end
       if (1..state.cities.length).include?(city_number)
         valid = true
         selection = state.cities[city_number - 1]
-        show_options(selection)
+        show_types(selection)
       else
         puts "Invalid selection. Please type the number of a city to see the types of rentals available."
         puts " "
@@ -111,11 +110,13 @@ class RecentRentalListings::CLI
         selection = city.types[type_number - 1]
         show_rentals(city, selection)
       else
-        puts "Invalid selection. Please select the number of a rental type to see the most recent rentals in you chosen city."
+        puts "Invalid selection. Please select the number of a rental type to see the most recent rentals in your chosen city."
         puts " "
       end
     end
   end
+
+
 
 
 

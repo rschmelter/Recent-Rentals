@@ -139,7 +139,7 @@ class RecentRentalListings::Scraper
   def rental_types_and_urls
     @rental_options_and_urls = @rental_options.zip(@rental_urls)
     @rental_options_and_urls
-    binding.pry
+
   end
 
   def scrape_listing_page(url)

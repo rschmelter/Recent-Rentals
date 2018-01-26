@@ -3,7 +3,7 @@ class RecentRentalListings::Type
 
   @@all = []
 
-  def initialize(name, url, city)
+  def initialize(name, city, url)
     @name = name
     @city = city
     @url = url
