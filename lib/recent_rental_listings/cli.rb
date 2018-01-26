@@ -144,7 +144,6 @@ class RecentRentalListings::CLI
       puts "Price: #{rental.price}"
       puts "Size: #{rental.size}"
       puts "Area: #{rental.area}"
-      puts "Learn more by visiting: #{rental.url}"
       puts "___________________________________________________________"
       puts ""
     i += 1
@@ -170,9 +169,11 @@ class RecentRentalListings::CLI
 
     def show_description(city, type, url)
       post = RecentRentalListings::Scraper.new.make_post(url)
+      puts " "
       post.each do |graph|
         puts "#{graph}"
       end
+      puts " "
       puts " "
       puts "To see more options, type 'more', or type 'quit' to exit"
       valid = false
@@ -190,6 +191,7 @@ class RecentRentalListings::CLI
 
 
     def reset(city, type)
+      puts " "
       puts "Type 'rentals' to see more of this type of rental in this city. Type 'city' to see other options in this state. Type 'state' to see a list of states, or 'quit' to exit"
       valid = false
       while valid == false
