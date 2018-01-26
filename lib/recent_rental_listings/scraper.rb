@@ -156,6 +156,13 @@ class RecentRentalListings::Scraper
       i += 1
     end
     @result_hash
+  end
+
+  def scrape_posting_info(url)
+    html = open(url)
+    doc = Nokogiri::HTML(html)
+    doc.css(".result-row .result-info").each do |result|
+
 
   end
 
