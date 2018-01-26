@@ -166,7 +166,10 @@ class RecentRentalListings::CLI
     end
 
     def show_description(url)
-      puts "#{url}"
+      post = RecentRentalListings::Scraper.new.make_post(url)
+      post.each do |graph|
+        puts "#{graph}"
+      end
     end
 
 
