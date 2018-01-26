@@ -170,6 +170,17 @@ class RecentRentalListings::CLI
       post.each do |graph|
         puts "#{graph}"
       end
+      puts " "
+      puts "To see more options, type 'more', or type 'quit' to exit"
+      valid = false
+      while valid = false
+        input = gets.strip
+        if input.downcase == "more"
+          reset(city)
+        else
+          puts "Invalid input. Please type 'more' or 'quit'"
+        end
+      end
     end
 
 
