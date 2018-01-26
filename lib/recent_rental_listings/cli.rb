@@ -132,10 +132,10 @@ class RecentRentalListings::CLI
         rental.url = result_hash[i][5]
         i += 1
      end
-     show_rentals(type)
+     show_rentals(city, type)
    end
 
-   def show_rentals(type)
+   def show_rentals(city, type)
      i = 1
      type.rentals.each do |rental|
       puts "#{i})"
@@ -149,10 +149,10 @@ class RecentRentalListings::CLI
       puts ""
     i += 1
       end
-      select_rental(type)
+      select_rental(city, type)
     end
 
-    def select_rental(type)
+    def select_rental(city, type)
       puts "Select the number of a rental to see the poster's description."
       valid = false
       while valid == false
@@ -161,14 +161,14 @@ class RecentRentalListings::CLI
         if (1..type.rentals.length).include?(rental_number)
           valid = true
           selection = type.rentals[rental_number - 1]
-          show_description(type, selection.url)
+          show_description(city, type, selection.url)
         else
           puts "Invalid selection. Please select a number of a rental to see a description."
         end
       end
     end
 
-    def show_description(type, url)
+    def show_description(city, type, url)
       post = RecentRentalListings::Scraper.new.make_post(url)
       post.each do |graph|
         puts "#{graph}"
@@ -176,7 +176,7 @@ class RecentRentalListings::CLI
       puts " "
       puts "To see more options, type 'more', or type 'quit' to exit"
       valid = false
-      while valid = false
+      while valid == false
         input = gets.strip
         if input.downcase == "more"
           reset(city, type)
@@ -201,7 +201,7 @@ class RecentRentalListings::CLI
           valid = true
           show_states
         elsif input.downcase == "rentals"
-          show_rentals(type)
+          show_rentals(city, type)
         elsif input.downcase == "quit"
           valid = true
           puts "Have a nice day!"
