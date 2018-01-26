@@ -117,10 +117,10 @@ class RecentRentalListings::CLI
   end
 
   def show_rentals(city, type)
-    result_hash = HousingList::Scraper.new.make_rentals(type.url)
+    result_hash = RecentRentalListings::Scraper.new.make_rentals(type.url)
 
     result_hash.each do |key, value|
-      HousingList::Rental.new(city, type, key.to_s)
+      RecentRentalListings::Rental.new(city, type, key.to_s)
     end
     i = 1
       type.rentals.each do |rental|
@@ -131,10 +131,25 @@ class RecentRentalListings::CLI
         rental.area = result_hash[i][4]
         rental.url = result_hash[i][5]
         i += 1
+     end
+     i = 1
+     type.rentals.each do |rental|
+      puts "#{i})"
+      puts "Date Listed: #{rental.list_date}"
+      puts "Description: #{rental.description}"
+      puts "Price: #{rental.price}"
+      puts "Size: #{rental.size}"
+      puts "Area: #{rental.area}"
+      puts "Learn more by visiting: #{rental.url}"
+      puts "___________________________________________________________"
+      puts ""
+
+    i += 1
+      end
+
     end
 
 
-  end
 
 
 
