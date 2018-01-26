@@ -146,7 +146,15 @@ class RecentRentalListings::CLI
 
     i += 1
       end
-      reset(city)
+      select_rental
+    end
+
+    def select_rental
+      puts "Select the number of a rental to see the poster's description."
+      while valid = false
+        input = gets.strip
+        if (1..120).include?(input.to_i)
+          valid = true
 
     end
 
