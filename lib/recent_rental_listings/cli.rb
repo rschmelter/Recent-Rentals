@@ -41,7 +41,7 @@ class RecentRentalListings::CLI
   end
 
   def select_state
-    puts "Type the number of the state to see a list of cities to choose from."
+    puts "Select the number of the state to see a list of cities to choose from."
     puts " "
     valid = false
     while valid == false
@@ -170,10 +170,14 @@ class RecentRentalListings::CLI
     def show_description(city, type, url)
       post = RecentRentalListings::Scraper.new.make_post(url)
       puts " "
+      puts "____________________________________________________________"
+      puts " "
       post.each do |graph|
         puts "#{graph}"
       end
       puts " "
+      puts " "
+      puts "____________________________________________________________"
       puts " "
       puts "To see more options, type 'more', or type 'quit' to exit"
       valid = false
