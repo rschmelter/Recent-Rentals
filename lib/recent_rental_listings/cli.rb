@@ -23,7 +23,7 @@ class RecentRentalListings::CLI
         state_object = RecentRentalListings::State.find_by_name(detect_input)
         if state_object != nil
           valid = true
-          show_cities(state_object)
+          get_cities(state_object)
         elsif input.downcase == "list"
           valid = true
           i = 1
