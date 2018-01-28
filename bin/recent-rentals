@@ -2,7 +2,4 @@
 
 require_relative '../lib/recent_rental_listings'
 
-# RecentRentalListings::Scraper.new.make_rentals("https://westmd.craigslist.org/d/apts-housing-for-rent/search/apa")
-# RecentRentalListings::Scraper.new.make_states_cities
-# RecentRentalListings::Scraper.new.make_post("https://sanmarcos.craigslist.org/sub/d/february-sublease-439/6468164524.html")
 RecentRentalListings::CLI.new.start

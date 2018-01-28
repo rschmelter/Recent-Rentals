@@ -1,6 +1,6 @@
 # RecentRentalListings
 
-This application provides a CLI to view rentals for apartments, rooms, sublets, and vacation homes that are listed on Craigslist from all 50 states.
+This application provides a CLI to view rentals for apartments, rooms, sublets, and vacation homes that are listed on Craigslist from all 50 states as well as Washington D.C. and US Territories.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Clone the repo at https://github.com/rschmelter/Recent-Rentals
 
 ## Usage
 
-Once repo is cloned, cd into the bin file and run with ./recent-rentals
+Once repo is cloned, cd into the bin folder and run with ./recent-rentals
 
 ## Development
 
