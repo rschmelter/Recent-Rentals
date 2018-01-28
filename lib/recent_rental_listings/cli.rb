@@ -50,7 +50,7 @@ class RecentRentalListings::CLI
       if (1..52).include?(state_number)
         valid = true
         selection = @states_array[state_number - 1]
-        show_cities(selection)
+        get_cities(selection)
       else
         puts "Invalid selection. Please choose a number between 1 and 52"
         puts " "
@@ -58,7 +58,7 @@ class RecentRentalListings::CLI
     end
   end
 
-  def show_cities(state)
+  def get_cities(state)
     city_array = @state_hash[state.name]
     zipped_array = city_array[0].zip(city_array[1])
     zipped_array.each do |array|
@@ -67,6 +67,10 @@ class RecentRentalListings::CLI
       array[1]
       )
     end
+    show_cities(state)
+  end
+
+  def show_cities(state)
     state.cities.each_with_index do |city, index|
       puts "#{index + 1}. #{city.name.strip}"
     end
